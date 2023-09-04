@@ -1,0 +1,54 @@
+.card {
+  height: 500px;
+  width: 100%;
+}
+.card__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  float: left;
+  width: 50%;
+  height: 100%;
+  margin: -1px;
+  box-sizing: border-box;
+  border: 2px solid var(--purple);
+  z-index: 9;
+  transition: all .25s;
+}
+.card__inner label {
+  color: var(--purple);
+  opacity: .3;
+  font-size: 5rem;
+  font-weight: 900;
+  z-index: 0;
+  cursor: none;
+  display: inline-block;
+  pointer-events: none;
+}
+#cursor {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: 50%;
+  border-radius: 5px;
+  background: var(--purple);
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transition: transform .5s, width .5s, height .5s, clip-path .5s;
+}
+#cursor.scaled {
+  transform: scale(5);
+}
+#cursor.hovered {
+  width: 75px;
+  height: 75px;
+  transform: scale(1.5);
+}
+#cursor.hovered.left-arrow {
+  clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
+}
+#cursor.hovered.right-arrow {
+  clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+}
